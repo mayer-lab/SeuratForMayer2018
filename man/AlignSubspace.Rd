@@ -5,7 +5,7 @@
 \title{Align subspaces using dynamic time warping (DTW)}
 \usage{
 AlignSubspace(object, reduction.type, grouping.var, dims.align,
-  num.genes = 30, show.plots = FALSE)
+  num.genes = 30, show.plots = FALSE, ...)
 }
 \arguments{
 \item{object}{Seurat object}
@@ -19,6 +19,8 @@ AlignSubspace(object, reduction.type, grouping.var, dims.align,
 \item{num.genes}{Number of genes to use in construction of "metagene"}
 
 \item{show.plots}{show debugging plots}
+
+\item{\dots}{Additional parameters to ScaleData}
 }
 \value{
 Returns Seurat object with the dims aligned, stored in

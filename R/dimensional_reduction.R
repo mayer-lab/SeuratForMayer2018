@@ -776,6 +776,7 @@ CalcVarExpRatio <- function(
 #' @param dims.align Dims to align, default is all
 #' @param num.genes Number of genes to use in construction of "metagene"
 #' @param show.plots show debugging plots
+#' @param \dots Additional parameters to ScaleData
 #'
 #' @return Returns Seurat object with the dims aligned, stored in
 #'  object@@dr$reduction.type.aligned
@@ -794,7 +795,8 @@ AlignSubspace <- function(
   grouping.var,
   dims.align,
   num.genes = 30,
-  show.plots = FALSE
+  show.plots = FALSE,
+  ...
 ) {
   parameters.to.store <- as.list(environment(), all = TRUE)[names(formals("AlignSubspace"))]
   object <- SetCalcParams(
@@ -823,7 +825,7 @@ AlignSubspace <- function(
   cc.embeds <- list()
   for (i in 1:2) {
     cat(paste0("Rescaling group ", i, "\n"), file = stderr())
-    objects[[i]] <- ScaleData(object = objects[[i]])
+    objects[[i]] <- ScaleData(object = objects[[i]], ...)
     objects[[i]]@scale.data[is.na(x = objects[[i]]@scale.data)] <- 0
     objects[[i]] <- ProjectDim(
       object = objects[[i]],
@@ -883,9 +885,6 @@ AlignSubspace <- function(
 
     if (nGene >= 20) print("PASS")
     if (nGene < 20) print("FAIL")
-
-    #browser()
-
 
     metagenes <- list()
     multvar.data <- list()
@@ -1049,7 +1048,7 @@ RunDiffusion <- function(
                           ... = parameters.to.store)
   data.dist <- dist(data.use)
   data.diffusion <- data.frame(
-    diffuse( 
+    diffuse(
       D = data.dist,
       neigen = max.dim,
       maxdim = max.dim,
@@ -1134,7 +1133,7 @@ MultiModal_CCA <- function(
   #data.2.var=apply(data.2,2,var)
   data.1 <- data.1[,apply(data.1,2,var)>0]
   data.2 <- data.2[,apply(data.2,2,var)>0]
-  
+
   num.cc <- min(20, min(ncol(data.1), ncol(data.2)))
   cca.data <- list(data.1, data.2)
   names(x = cca.data) <- c(assay.1, assay.2)
