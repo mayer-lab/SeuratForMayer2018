@@ -1,0 +1,87 @@
+Package: Seurat
+Version: 2.0.0.M
+Date: 2017-07-17
+Title: Seurat : R Toolkit for Single Cell Genomics
+Description: A toolkit for QC, analysis, and exploration of single cell RNA-seq data. Seurat aims to enable users to identify and interpret sources of heterogeneity from single cell transcriptomic measurements, and to integrate diverse types of single cell data.
+Author: Rahul Satija
+Maintainer: Satija Lab <seuratpackage@gmail.com>
+URL: http://www.satijalab.org/seurat
+Depends:
+    R (>= 3.2.0),
+    ggplot2,
+    cowplot,
+    Matrix,
+SystemRequirements: Java (>= 1.6)
+Imports:
+    methods,
+    ROCR,
+    stringr,
+    mixtools,
+    lars,
+    ica,
+    tsne,
+    Rtsne,
+    fpc,
+    ape,
+    VGAM,
+    pbapply,
+    igraph,
+    FNN,
+    caret,
+    e1071,
+    dplyr,
+    RColorBrewer,
+    MASS,
+    irlba,
+    reshape2,
+    gridExtra,
+    gplots,
+    gdata,
+    Rcpp,
+    tclust,
+    ranger,
+    compositions,
+    NMF,
+    NMOF,
+    dtw,
+    SDMTools,
+    plotly,
+    diffusionMap,
+    Hmisc,
+    tidyr,
+    ggjoy
+LinkingTo: Rcpp, RcppEigen, RcppProgress
+License: file LICENSE
+Collate: 
+    'RcppExports.R'
+    'seurat.R'
+    'cluster_determination.R'
+    'cluster_determination_internal.R'
+    'cluster_validation.R'
+    'deprecated_functions.R'
+    'differential_expression.R'
+    'differential_expression_internal.R'
+    'dimensional_reduction.R'
+    'dimensional_reduction_internal.R'
+    'dimensional_reduction_utilities.R'
+    'interaction.R'
+    'jackstraw.R'
+    'jackstraw_internal.R'
+    'multi_modal.R'
+    'plotting.R'
+    'plotting_internal.R'
+    'plotting_utilities.R'
+    'preprocessing.R'
+    'preprocessing_internal.R'
+    'printing_utilities.R'
+    'scoring.R'
+    'snn.R'
+    'spatial.R'
+    'spatial_internal.R'
+    'tSNE_project.R'
+    'utilities.R'
+    'utilities_internal.R'
+    'zfRenderSeurat.R'
+RoxygenNote: 6.0.1
+Suggests:
+    testthat
