@@ -881,10 +881,7 @@ AlignSubspace <- function(
     genes.rank$min2 <- apply(X = abs(x = genes.rank[, 3:4]), MARGIN = 1, FUN = min)
     genes.subset=subset(genes.rank,min2>0.15)
     nGene=nrow(genes.subset)
-    print(dim(genes.subset))
-
-    if (nGene >= 20) print("PASS")
-    if (nGene < 20) print("FAIL")
+    print(paste0("CC ", cc.use, ": ", dim(genes.subset)[1], " genes"))
 
     metagenes <- list()
     multvar.data <- list()
