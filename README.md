@@ -1,4 +1,4 @@
-# NOTE: This is a slightly modified version of Seurat v2.0.0 that was used in Mayer et al, 2018.
+This is the version of Seurat that was used in Mayer et al, 2018. It is very slightly modified from Seurat v2.0, with additional text output in the AlignSubspace function to help choose the number of components for alignment.
 
 # Seurat v2.0
 
